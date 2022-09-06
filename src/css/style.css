@@ -77,8 +77,9 @@ nav{
     font-weight: 300;
 }
 .banner__description{
+    display: block;
     font-size: 18px;
-    line-height: 72px;
+    margin: 36px 0;
 }
 .banner__button{
     background-color: #2c2c2c;
@@ -96,4 +97,68 @@ nav{
 /* section */
 section{
     max-width: calc(100vw - 200px);
+    width: 100%;
+    margin: 0 auto;
 }
+.section__header{
+    font-size: 28px;
+    margin: 28px 0;
+    text-align: center;
+}
+
+/* we are good*/
+.wearegood{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+.wearegood__item{
+    width: 25%;
+    text-align: center;
+}
+.wearegood__item img{
+    width: 40%;
+    padding: 20px;
+}
+
+/* collage */
+.collage{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-around;
+    margin: 80px 0;
+}
+.collage div{
+    width: 43%;
+}
+.collage .left__side img{
+    object-fit: contain;
+    width: 100%;
+}
+.collage .right__side{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+.collage .right__side div{
+    width: 100%;
+}
+.collage .right__side .upper img{
+    object-fit: cover;
+    width: 100%;
+}
+.collage .right__side .lower .section__header{
+    font-weight: 600;
+    margin-bottom: 14px;
+}
+.collage .right__side .lower p{
+    text-align: justify;
+    font-size: 18px;
+    line-height: 27px;
+    font-weight: 500;
+}
+
+/*top products*/
