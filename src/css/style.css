@@ -162,3 +162,63 @@ section{
 }
 
 /*top products*/
+.top__products{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-bottom: 80px;
+}
+.top__products__inner{
+    width: 50%;
+    padding: 25px;
+    display: flex;
+}
+.top__products__inner:hover{
+    background: rgba(68, 68, 68, 0.35);
+    transition: all 0.3s;
+}
+.top__products__inner img{
+    width: 200px;
+}
+.top__products__inner .right{
+    padding-left: 20px;
+}
+.top__products__inner .right h3{
+    font-size: 20px;
+}
+.top__products__inner .right p{
+    padding: 14px 0;
+    font-size: 18px;
+    text-align: justify;
+}
+.cost{
+    padding: 14px 0;
+    font-size: 22px;
+}
+.cost::after{
+    content: " руб.";
+    font-size: 16px;
+}
+.button__add{
+    display: block;
+    margin-top: 14px;
+    padding: 10px 20px;
+    font-size: 18px;
+    color: #fff;
+    font-weight: 500;
+    background-color: #2c2c2c;
+    border: none;
+}
+.button__add:hover{
+    background-color: #444444;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+/* banner 2 */
+.banner2{
+    background-image: url("../img/top_back2.jpg");
+}
+.banner__description ul li{
+    padding-top: 10px;
+}
