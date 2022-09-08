@@ -222,3 +222,109 @@ section{
 .banner__description ul li{
     padding-top: 10px;
 }
+
+/* catalog*/
+.catalog{
+    width: 100%;
+    
+}
+.catalog__header{
+    margin-bottom: 0;
+}
+.catalog__select{
+    display: block;
+    width: 300px;
+    height: 40px;
+    border: 3px solid;
+    border-color: #444444;
+    font-size: 20px;
+    font-weight: 600;
+    color: #2c2c2c;
+    margin: 0 auto 20px;
+}
+.catalog__inner{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.catalog__item{
+    width: 320px;
+    margin: 0 30px;
+    padding: 20px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+}
+.catalog__item:hover{
+    background-color: #fafafa;
+    transition: all 0.3s;
+}
+.catalog__item .cost{
+    padding: 5px 0;
+}
+.catalog__item *{
+    text-align: center;
+}
+
+/* delivery info */
+.delivery__outer{
+    margin: 100px 0;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.delivery__outer .text{
+    width: 35%;
+    padding: 60px 20px;
+    max-height: 250px;
+}
+.delivery__outer .text p{
+    font-size: 20px;
+    margin-top: 10px;
+}
+.delivery__outer .img__outer{
+    width: 40%;
+}
+.delivery__outer .img__outer img{
+    width: 100%;
+    object-fit: cover;
+}
+.delivery__outer .text2{
+    width: 35%;
+    background-color: #F2F2F2;
+    padding: 60px 20px;
+    max-height: 250px;
+}
+
+/*del info second*/
+.second{
+    align-items: flex-start;
+    margin: 28px 0;
+    height: auto;
+}
+.second .text2{
+    width: 50%;
+    background-color: #fff;
+    padding-top: 0;
+    padding-bottom: 40px;
+    height: auto;
+}
+.second .text2 p{
+    text-align: justify;
+    margin-bottom: 4px;
+}
+.second .text2 b{
+    font-weight: 600;
+    text-decoration: underline;
+}
+.second .text2 h3{
+    text-align: justify;
+    margin: 8px 0;
+}
+
+.second .img__outer{
+    width: 20%;
+}
