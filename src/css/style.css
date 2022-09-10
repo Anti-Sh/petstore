@@ -44,6 +44,25 @@ nav{
     text-decoration: none;
     font-size: 18px;
     padding: 0 20px;
+    position: relative;
+}
+.menu__link__inner:hover{
+    color: #fff;
+    transition: all 0.3s;
+}
+.menu__link__inner:hover::after{
+    width: 80%;
+}
+.menu__link__inner::after{
+    display: block;
+    content: "";
+    background-color: #fff;
+    height: 1px;
+    width: 0%;
+    left: 50%;
+    position: absolute;
+    transition: all 0.3s;
+    transform: translateX(-50%);
 }
 
 /* banner */
@@ -327,4 +346,179 @@ section{
 
 .second .img__outer{
     width: 20%;
+}
+
+/* auth + reg */
+.wrapper{
+    background-color: rgba(17, 17, 17, 0.9);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1200;
+    min-width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.wrapper__inner{
+    background-color: #fafafa;
+    width: 400px;
+    max-height: 955px;
+    overflow-y: auto;
+}
+.wrapper__header{
+    height: 35px;
+    margin: 10px 10px 0 10px;
+    width: calc(100%-20px);
+    position: relative;
+}
+.wrapper__header img{
+    position: absolute;
+    right: 0;
+    height: 100%;
+    transition: all 0.5s;
+}
+.wrapper__header img:hover{
+    cursor: pointer;
+    transition: all 0.5s;
+    transform: rotate(45deg);
+}
+.wrapper__inner h2{
+    text-align: center;
+}
+.wrapper__inner *{
+    text-align: center;
+}
+.wrapper__inner input{
+    width: 80%;
+    font-size: 20px;
+    margin-top: 30px;
+    background-color: #fafafa;
+    border: none;
+    border-bottom: 2px solid #a5a5a5;
+}
+.wrapper__inner input:active,
+.wrapper__inner input:hover
+{
+    transition: all 0.3s;
+    border-bottom: 2px solid #444444;
+}
+.wrapper__inner button{
+    margin-bottom: 30px;
+    font-size: 20px;
+    padding: 10px 30px;
+    background-color: #444444;
+    border: none;
+    color: #fff;
+}
+.wrapper__inner button:hover{
+    cursor: pointer;
+    background-color: #2c2c2c;
+    transition: all 0.3s;
+}
+.wrapper__inner p{
+    margin-bottom: 20px;
+    padding: 10px 30px;
+    padding-bottom: 0;
+}
+.switch__form{
+    font-weight: 800;
+    text-decoration: underline;
+}
+.switch__form:hover{
+    cursor: pointer;
+}
+
+/*cart*/
+.busket__button{
+    position: fixed;
+    width: 90px;
+    height: 90px;
+    bottom: 25px;
+    right: 25px;
+    background-color: #444444;
+    z-index: 1000;
+    border-radius: 100%;
+    box-shadow: 0 0 8px #444444;
+}
+.busket__button:hover{
+    background-color: #2c2c2c;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.busket__button img{
+    height: 100%;
+    padding: 10px;
+}
+.cart__inner{
+    width: 90%;
+    margin: 10px auto 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    
+}
+.cart__item{
+    width: 100%;
+    padding: 2px;
+    font-size: 18px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border: 3px solid #444444;
+    margin-top: 20px;
+}
+.cart__item .cost{
+    width: 30%;
+}
+.cart__item .name{
+    width: 60%;
+}
+.count__panel{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 28px;
+}
+.count__panel .change{
+    font-size: 22px;
+    border: 1px solid #444444;
+    width: 28px;
+}
+.count__panel .change:hover{
+    transition: all 0.3s;
+    background-color: #444444;
+    cursor: pointer;
+    color: #fff;
+}
+.count__panel  .count{
+    font-size: 20px;
+    
+}
+
+/* profile */
+.char__outer{
+    margin-bottom: 20px;
+}
+.char__outer:last-of-type{
+    margin-bottom: 40px;
+}
+.profile h2{
+    margin-bottom: 20px;
+}
+.profile .char__label{
+    display: block;
+    font-weight: 600;
+    font-size: 18px;
+}
+.profile .label{
+    font-size: 18px;
+}
+
+
+.hide{
+    display: none;
 }
