@@ -9,8 +9,7 @@
 }
 body{
     height: 100vh;
-    /* background-color: #fff;
-    overflow: hidden;  */
+    scroll-behavior: smooth;
 }
 
 /* HEADER */

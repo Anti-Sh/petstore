@@ -4,38 +4,39 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="src/js/script.js"></script>
     <link rel="stylesheet" href="src/css/style.css">
     <title>Мокрый Хвост</title>
 </head>
 <body>
     <header>
         <div class="logo__outer">
-            <img src="/src/img/logo.png" alt="">
+            <img src="src/img/logo.png" alt="">
         </div>
         <nav>
             <div class="menu__link">
-                <a href="#" class="menu__link__inner">
+                <a href="#pop" class="menu__link__inner">
                     Популярное
                 </a>
             </div>
             <div class="menu__link">
-                <a href="#" class="menu__link__inner">
+                <a href="#catalog" class="menu__link__inner">
                     Каталог
                 </a>
             </div>
             <div class="menu__link">
-                <a href="#" class="menu__link__inner">
+                <a href="#terms" class="menu__link__inner">
                     Условия
                 </a>
             </div>
             <div class="menu__link">
-                <a href="#" class="menu__link__inner">
-                    Магазины
+                <a href="#about" class="menu__link__inner">
+                    О нас
                 </a>
             </div>
             <div class="menu__link">
-                <a href="#" class="menu__link__inner">
+                <a href="#" id="profile" class="menu__link__inner">
                     Профиль
                 </a>
             </div>
@@ -62,20 +63,20 @@
         </div>
     </div>
     <section>
-        <h1 class="section__header">Почему нам можно доверять</h1>
+        <h1 class="section__header" id="about">Почему нам можно доверять</h1>
         <div class="wearegood">
             <div class="wearegood__item">
-                <img src="/src/img/weare/adding-machine.svg" alt="">
+                <img src="src/img/weare/adding-machine.svg" alt="">
                 <h3>Весь товар сертифицирован</h3>
                 <p>И вы можете проверить это, посетив наш магазин!</p>
             </div>
             <div class="wearegood__item">
-                <img src="/src/img/weare/copier.svg" alt="">
+                <img src="src/img/weare/copier.svg" alt="">
                 <h3>Тысячи довольных клиентов</h3>
                 <p>Отзывы наших клиентов заставляют нас держать планку на высоком уровне</p>
             </div>
             <div class="wearegood__item">
-                <img src="/src/img/weare/basket.svg" alt="">
+                <img src="src/img/weare/basket.svg" alt="">
                 <h3>100% гарантия качества </h3>
                 <p>Если вы или ваш питомец недовольны качеством товара, то мы вернем вам деньги</p>
             </div>
@@ -105,10 +106,10 @@
             </div>
         </div>
 
-        <h1 class="section__header">Популярные зоотовары</h1>
+        <h1 class="section__header" id="pop">Популярные зоотовары</h1>
         <div class="top__products">
             <div class="top__products__inner">
-                <img src="/src/img/products/kogtetochka.jpg" alt="">
+                <img src="src/img/products/kogtetochka.jpg" alt="">
                 <div class="right">
                     <h3>Когтеточка</h3>
                     <p>Товар, который поможет упростить и разнообразить уход за питомцем, а также превратить вашего непоседу в стильного и послушного друга.</p>
@@ -117,7 +118,7 @@
                 </div>
             </div>
             <div class="top__products__inner">
-                <img src="/src/img/products/kogtetochka.jpg" alt="">
+                <img src="src/img/products/kogtetochka.jpg" alt="">
                 <div class="right">
                     <h3 class="product__name">Когтеточка</h3>
                     <p class="product__desc">Товар, который поможет упростить и разнообразить уход за питомцем, а также превратить вашего непоседу в стильного и послушного друга.</p>
@@ -126,7 +127,7 @@
                 </div>
             </div>
             <div class="top__products__inner">
-                <img src="/src/img/products/kogtetochka.jpg" alt="">
+                <img src="src/img/products/kogtetochka.jpg" alt="">
                 <div class="right">
                     <h3 class="product__name">Когтеточка</h3>
                     <p class="product__desc">Товар, который поможет упростить и разнообразить уход за питомцем, а также превратить вашего непоседу в стильного и послушного друга.</p>
@@ -135,7 +136,7 @@
                 </div>
             </div>
             <div class="top__products__inner">
-                <img src="/src/img/products/kogtetochka.jpg" alt="">
+                <img src="src/img/products/kogtetochka.jpg" alt="">
                 <div class="right">
                     <h3 class="product__name">Когтеточка</h3>
                     <p class="product__desc">Товар, который поможет упростить и разнообразить уход за питомцем, а также превратить вашего непоседу в стильного и послушного друга.</p>
@@ -174,7 +175,7 @@
     </div>
 
     <section>
-        <h1 class="section__header catalog__header">Каталог зоотоваров</h1>
+        <h1 class="section__header catalog__header" id="catalog">Каталог зоотоваров</h1>
         <div class="catalog">
             <select name="category" id="category" class="catalog__select">
                 <option value="0">Все</option>
@@ -184,49 +185,49 @@
             </select>
             <div class="catalog__inner">
                 <div class="catalog__item">
-                    <img src="/src/img/products/blohi_cats.jpg">
+                    <img src="src/img/products/blohi_cats.jpg">
                     <h3 class="product__name">Когтеточка</h3>
                     <p class="product__desc">Товар, который поможет упростить и разнообразить уход за питомцем, а также превратить вашего непоседу в стильного и послушного друга.</p>
                     <span class="cost">1199</span>
                     <button class="button__add">В корзину</button>
                 </div>
                 <div class="catalog__item">
-                    <img src="/src/img/products/blohi_cats.jpg">
+                    <img src="src/img/products/blohi_cats.jpg">
                     <h3 class="product__name">Когтеточка</h3>
                     <p class="product__desc">Товар, который поможет упростить и разнообразить уход за питомцем, а также превратить вашего непоседу в стильного и послушного друга.</p>
                     <span class="cost">1199</span>
                     <button class="button__add">В корзину</button>
                 </div>
                 <div class="catalog__item">
-                    <img src="/src/img/products/blohi_cats.jpg">
+                    <img src="src/img/products/blohi_cats.jpg">
                     <h3 class="product__name">Когтеточка</h3>
                     <p class="product__desc">Товар, который поможет упростить и разнообразить уход за питомцем, а также превратить вашего непоседу в стильного и послушного друга.</p>
                     <span class="cost">1199</span>
                     <button class="button__add">В корзину</button>
                 </div>
                 <div class="catalog__item">
-                    <img src="/src/img/products/blohi_cats.jpg">
+                    <img src="src/img/products/blohi_cats.jpg">
                     <h3 class="product__name">Когтеточка</h3>
                     <p class="product__desc">Товар, который поможет упростить и разнообразить уход за питомцем, а также превратить вашего непоседу в стильного и послушного друга.</p>
                     <span class="cost">1199</span>
                     <button class="button__add">В корзину</button>
                 </div>
                 <div class="catalog__item">
-                    <img src="/src/img/products/blohi_cats.jpg">
+                    <img src="src/img/products/blohi_cats.jpg">
                     <h3 class="product__name">Когтеточка</h3>
                     <p class="product__desc">Товар, который поможет упростить и разнообразить уход за питомцем, а также превратить вашего непоседу в стильного и послушного друга.</p>
                     <span class="cost">1199</span>
                     <button class="button__add">В корзину</button>
                 </div>
                 <div class="catalog__item">
-                    <img src="/src/img/products/blohi_cats.jpg">
+                    <img src="src/img/products/blohi_cats.jpg">
                     <h3 class="product__name">Когтеточка</h3>
                     <p class="product__desc">Товар, который поможет упростить и разнообразить уход за питомцем, а также превратить вашего непоседу в стильного и послушного друга.</p>
                     <span class="cost">1199</span>
                     <button class="button__add">В корзину</button>
                 </div>
                 <div class="catalog__item">
-                    <img src="/src/img/products/blohi_cats.jpg">
+                    <img src="src/img/products/blohi_cats.jpg">
                     <h3 class="product__name">Когтеточка</h3>
                     <p class="product__desc">Товар, который поможет упростить и разнообразить уход за питомцем, а также превратить вашего непоседу в стильного и послушного друга.</p>
                     <span class="cost">1199</span>
@@ -241,14 +242,14 @@
                 <p>Наша компания занимается продажей и доставкой зоотоваров с 2009 года. Сделайте заказ, и наши операторы свяжутся с вами для согласования деталей.</p>
             </div>
             <div class="img__outer">
-                <img src="/src/img/delivery_info.jpg" alt="">
+                <img src="src/img/delivery_info.jpg" alt="">
             </div>
         </div>
 
-        <h1 class="section__header">Условия оплаты и доставки</h1>
+        <h1 class="section__header" id="terms">Условия оплаты и доставки</h1>
         <div class="delivery__outer second">
             <div class="img__outer">
-                <img src="/src/img/delivery_info2.jpg" alt="">
+                <img src="src/img/delivery_info2.jpg" alt="">
             </div>
 
             <div class="text2">
@@ -260,32 +261,32 @@
             </div>
         </div>
 
-        <h1 class="section__header">Наши магазины</h1>
+        <h1 class="section__header" id="map">Наши магазины</h1>
     </section>
 
-    <div class="wrapper hide">
+    <div class="wrapper" id="wrapper">
         <div class="wrapper__inner">
             <div class="wrapper__header">
-                <img src="/src/img/cross.png" alt="">
+                <img src="src/img/cross.png" alt="">
             </div>
-            <div class="reg hide">
+            <div class="reg">
                 <h2>Регистрация</h2>
-                <input type="email" name="email" id="" placeholder="E-mail">
-                <input type="text" name="telephone" id="" placeholder="Номер телефона">
-                <input type="text" name="name" id="" placeholder="Имя">
-                <input type="password" name="password1" id="" placeholder="Пароль">
-                <input type="password" name="password2" id="" placeholder="Подтверждение пароля">
+                <input type="email" name="email" placeholder="E-mail">
+                <input type="text" name="telephone" placeholder="Номер телефона">
+                <input type="text" name="name" placeholder="Имя">
+                <input type="password" name="password1" placeholder="Пароль">
+                <input type="password" name="password2" placeholder="Подтверждение пароля">
                 <p>У вас уже есть аккаунт? <br><span class="switch__form">Авторизация</span></p>
                 <button>Подтвердить</button>
             </div>
-            <div class="auth hide">
+            <div class="auth">
                 <h2>Авторизация</h2>
-                <input type="email" name="email" id="" placeholder="E-mail">
-                <input type="password" name="password1" id="" placeholder="Пароль">
+                <input type="email" name="email" placeholder="E-mail">
+                <input type="password" name="password1" placeholder="Пароль">
                 <p>У вас нет аккаунта? <br><span class="switch__form">Регистрация</span></p>
                 <button>Подтвердить</button>
             </div>
-            <div class="profile hide">
+            <div class="profile">
                 <h2>Профиль</h2>
                 <div class="char__outer">
                     <span class="char__label">e-mail</span>
@@ -309,7 +310,7 @@
                 </div>
                 
             </div>
-            <div class="cart hide">
+            <div class="cart">
                 <h2>Корзина</h2>
                 <div class="cart__inner">
                     <div class="cart__item">
@@ -364,7 +365,7 @@
     </div>
 
     <div class="busket__button">
-        <img src="/src/img/cart.png">
+        <img src="src/img/cart.png">
     </div>
 
     <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A05bf7191223c3e2b1e87fb44f58162d3dd4d000fc88274b5ad9238af168b2dce&amp;width=100%25&amp;height=400&amp;lang=ru_RU&amp;scroll=true"></script>
