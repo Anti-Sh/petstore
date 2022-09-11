@@ -534,7 +534,7 @@ section{
     color: #2c2c2c;
 }
 .notification p{
-    text-align: justify;
+    text-align: left;
     color: #2c2c2c;
     font-weight: 500;
 }
