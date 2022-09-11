@@ -72,8 +72,8 @@ if (!empty($msg)){
     echo json_encode($response); // Отправка JSON на страницу
     die(); // Прекращение выполнения кода
 }
-
-$insert_query = "INSERT INTO `users`(`id`, `email`, `tel`, `name`, `password`) VALUES (NULL, '$email','$telephone','$name','$password')";
+$date = date('Y-m-j');
+$insert_query = "INSERT INTO `users`(`id`, `email`, `tel`, `name`, `password`, `reg_date`) VALUES (NULL, '$email','$telephone','$name','$password', '$date')";
 mysqli_query($connect, $insert_query);
 
 $response = [ // Создание JSON

@@ -15,7 +15,7 @@ $(function(){
 
     $("#profile").on("click", function(){
         // Открытие профиля по нажатию пункта меню
-        if(wrapper_childs[2].length != 0){
+        if(wrapper_childs[2].length == 0){
             $(".auth").show();
         }
         else{
@@ -104,8 +104,6 @@ $(function(){
             success (data) {
                 if (data.status) {
                     document.location.href = '../../index.php';
-                    delay(1000);
-                    notification(1, data.message);
                 } 
                 else {
                     fields.forEach(function (field) {
@@ -121,4 +119,70 @@ $(function(){
             }
         });
     });
+
+    $('.auth button').on("click", function(e){
+        e.preventDefault();
+        let email = $('input[name="email_login"]').val(),
+            password = $('input[name="password_login"]').val(),
+            fields = [
+                $('input[name="email_login"]'),
+                $('input[name="password_login"]')
+            ];
+        $.ajax({
+            url: '../../core/signin.php',
+            type: 'POST',
+            dataType: 'json',
+            data: {
+                email: email,
+                password: password
+            },
+            success (data) {
+                if (data.status) {
+                    document.location.href = '../../index.php';
+                } 
+                else {
+                    fields.forEach(function (field) {
+                        field.attr('style', '');
+                    });
+                    if (data.type === 1) {
+                        data.fields.forEach(function (field) {
+                            $(`input[name="${field}"]`).css("border-color", "#c44040");
+                        });
+                    }
+                    notification(2, data.message);
+                }
+            }
+        });
+    });
+
+    $('#category').on("change", function(e){
+        var section_id = $(e.target).val(),
+            items = $(".catalog__item");
+        console.log(section_id);    
+        function showAllItems(){
+            for(let i = 0; i < items.length; i++){
+                $(items[i]).show();
+            }
+        }    
+        function hideAllItems(){
+            for(let i = 0; i < items.length; i++){
+                $(items[i]).hide();
+            }
+        }    
+        hideAllItems();
+        if (section_id == 0){
+            showAllItems();
+        }
+        else{
+            for(let i = 0; i < items.length; i++){
+                if(parseInt($(items[i].children[4]).val().trim()) == parseInt(section_id.trim())){
+                    $(items[i]).show();
+                    console.log(1111111);
+                }
+            }
+        }
+        
+    });
+
+
 })

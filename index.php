@@ -1,3 +1,6 @@
+<?
+    require_once "core/connect.php"
+?>
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -110,38 +113,14 @@
 
         <h1 class="section__header" id="pop">Популярные зоотовары</h1>
         <div class="top__products">
+            <?
+            $sql = "SELECT `id`,`name`,`description`,`src`,`cost` FROM `catalog` `c` INNER JOIN `orders_products` `o` ON `c`.`id`=`o`.`product_id`";
+            ?>
             <div class="top__products__inner">
                 <img src="src/img/products/kogtetochka.jpg" alt="">
                 <div class="right">
                     <h3>Когтеточка</h3>
                     <p>Товар, который поможет упростить и разнообразить уход за питомцем, а также превратить вашего непоседу в стильного и послушного друга.</p>
-                    <span class="cost">1199</span>
-                    <button class="button__add">В корзину</button>
-                </div>
-            </div>
-            <div class="top__products__inner">
-                <img src="src/img/products/kogtetochka.jpg" alt="">
-                <div class="right">
-                    <h3 class="product__name">Когтеточка</h3>
-                    <p class="product__desc">Товар, который поможет упростить и разнообразить уход за питомцем, а также превратить вашего непоседу в стильного и послушного друга.</p>
-                    <span class="cost">1199</span>
-                    <button class="button__add">В корзину</button>
-                </div>
-            </div>
-            <div class="top__products__inner">
-                <img src="src/img/products/kogtetochka.jpg" alt="">
-                <div class="right">
-                    <h3 class="product__name">Когтеточка</h3>
-                    <p class="product__desc">Товар, который поможет упростить и разнообразить уход за питомцем, а также превратить вашего непоседу в стильного и послушного друга.</p>
-                    <span class="cost">1199</span>
-                    <button class="button__add">В корзину</button>
-                </div>
-            </div>
-            <div class="top__products__inner">
-                <img src="src/img/products/kogtetochka.jpg" alt="">
-                <div class="right">
-                    <h3 class="product__name">Когтеточка</h3>
-                    <p class="product__desc">Товар, который поможет упростить и разнообразить уход за питомцем, а также превратить вашего непоседу в стильного и послушного друга.</p>
                     <span class="cost">1199</span>
                     <button class="button__add">В корзину</button>
                 </div>
@@ -181,60 +160,27 @@
         <div class="catalog">
             <select name="category" id="category" class="catalog__select">
                 <option value="0">Все</option>
-                <option value="1">Корм</option>
-                <option value="2">Наполнитель</option>
-                <option value="3">Препарат</option>
+                <?
+                $options = mysqli_query($connect, "SELECT * FROM `catalog_sections`");
+                while( $option = mysqli_fetch_array($options)):
+                ?>
+                <option value="<?=$option[0]?>"> <?=$option[1]?> </option>
+                <? endwhile; ?>
             </select>
             <div class="catalog__inner">
+                <?
+                $items = mysqli_query($connect, "SELECT * FROM `catalog`");
+                while( $item = mysqli_fetch_assoc($items)):
+                ?>
                 <div class="catalog__item">
-                    <img src="src/img/products/blohi_cats.jpg">
-                    <h3 class="product__name">Когтеточка</h3>
-                    <p class="product__desc">Товар, который поможет упростить и разнообразить уход за питомцем, а также превратить вашего непоседу в стильного и послушного друга.</p>
-                    <span class="cost">1199</span>
-                    <button class="button__add">В корзину</button>
+                    <img src=" <?= $item['src'] ?> ">
+                    <h3 class="product__name"> <?= $item['name'] ?> </h3>
+                    <p class="product__desc"> <?= $item['description'] ?> </p>
+                    <span class="cost"> <?= $item['cost'] ?> </span>
+                    <input class="section_id hide" type="radio" value=" <?= $item['section_id'] ?> ">
+                    <button value=" <?= $item['id'] ?> " class="button__add">В корзину</button>
                 </div>
-                <div class="catalog__item">
-                    <img src="src/img/products/blohi_cats.jpg">
-                    <h3 class="product__name">Когтеточка</h3>
-                    <p class="product__desc">Товар, который поможет упростить и разнообразить уход за питомцем, а также превратить вашего непоседу в стильного и послушного друга.</p>
-                    <span class="cost">1199</span>
-                    <button class="button__add">В корзину</button>
-                </div>
-                <div class="catalog__item">
-                    <img src="src/img/products/blohi_cats.jpg">
-                    <h3 class="product__name">Когтеточка</h3>
-                    <p class="product__desc">Товар, который поможет упростить и разнообразить уход за питомцем, а также превратить вашего непоседу в стильного и послушного друга.</p>
-                    <span class="cost">1199</span>
-                    <button class="button__add">В корзину</button>
-                </div>
-                <div class="catalog__item">
-                    <img src="src/img/products/blohi_cats.jpg">
-                    <h3 class="product__name">Когтеточка</h3>
-                    <p class="product__desc">Товар, который поможет упростить и разнообразить уход за питомцем, а также превратить вашего непоседу в стильного и послушного друга.</p>
-                    <span class="cost">1199</span>
-                    <button class="button__add">В корзину</button>
-                </div>
-                <div class="catalog__item">
-                    <img src="src/img/products/blohi_cats.jpg">
-                    <h3 class="product__name">Когтеточка</h3>
-                    <p class="product__desc">Товар, который поможет упростить и разнообразить уход за питомцем, а также превратить вашего непоседу в стильного и послушного друга.</p>
-                    <span class="cost">1199</span>
-                    <button class="button__add">В корзину</button>
-                </div>
-                <div class="catalog__item">
-                    <img src="src/img/products/blohi_cats.jpg">
-                    <h3 class="product__name">Когтеточка</h3>
-                    <p class="product__desc">Товар, который поможет упростить и разнообразить уход за питомцем, а также превратить вашего непоседу в стильного и послушного друга.</p>
-                    <span class="cost">1199</span>
-                    <button class="button__add">В корзину</button>
-                </div>
-                <div class="catalog__item">
-                    <img src="src/img/products/blohi_cats.jpg">
-                    <h3 class="product__name">Когтеточка</h3>
-                    <p class="product__desc">Товар, который поможет упростить и разнообразить уход за питомцем, а также превратить вашего непоседу в стильного и послушного друга.</p>
-                    <span class="cost">1199</span>
-                    <button class="button__add">В корзину</button>
-                </div>
+                <? endwhile; ?>
             </div>
         </div>
 
@@ -271,6 +217,7 @@
             <div class="wrapper__header">
                 <img src="src/img/cross.png" alt="">
             </div>
+            <? if (!$_SESSION["user"]): ?>
             <div class="reg">
                 <h2>Регистрация</h2>
                 <input type="email" name="email" placeholder="E-mail">
@@ -288,71 +235,39 @@
                 <p>У вас нет аккаунта? <br><span class="switch__form">Регистрация</span></p>
                 <button>Подтвердить</button>
             </div>
+            <? else: ?>
             <div class="profile">
                 <h2>Профиль</h2>
                 <div class="char__outer">
                     <span class="char__label">e-mail</span>
-                    <span class="label">zzzZ@mail.ru</span>
+                    <span class="label"> <?= $_SESSION["user"]["email"] ?> </span>
                 </div>
                 <div class="char__outer">
                     <span class="char__label">Имя</span>
-                    <span class="label">Иван</span>
+                    <span class="label"> <?= $_SESSION["user"]["name"] ?> </span>
                 </div>
                 <div class="char__outer">
                     <span class="char__label">Номер телефона</span>
-                    <span class="label">+79779779798</span>
+                    <span class="label"> <?= $_SESSION["user"]["tel"]; ?> </span>
                 </div>
                 <div class="char__outer">
                     <span class="char__label">Количество заказов</span>
-                    <span class="label">+79779779798</span>
+                    <span class="label"> <?= $_SESSION["user"]["orders"]; ?> </span>
                 </div>
                 <div class="char__outer">
                     <span class="char__label">Зарегистрирован:</span>
-                    <span class="label">27 ноября 2022</span>
+                    <span class="label"> <?= $_SESSION["user"]["date"]; ?> </span>
                 </div>
-                
+                <form action="core/signout.php" method="post">
+                    <button type="submit">Выход</button>
+                </form>
             </div>
+            <? endif; ?>
             <div class="cart">
                 <h2>Корзина</h2>
                 <div class="cart__inner">
                     <div class="cart__item">
                         <span class="name">Lorem ipsum dolor sit amet.</span>
-                        <div class="count__panel">
-                            <span class="change">-</span>
-                            <span class="count">1</span>
-                            <span class="change">+</span>
-                        </div>
-                        <span class="cost">159999</span>
-                    </div>
-                    <div class="cart__item">
-                        <span class="name">Lorem ipsum dolor sit amet. Lorem20</span>
-                        <div class="count__panel">
-                            <span class="change">-</span>
-                            <span class="count">1</span>
-                            <span class="change">+</span>
-                        </div>
-                        <span class="cost">159999</span>
-                    </div>
-                    <div class="cart__item">
-                        <span class="name">Lorem ipsum dolor sit amet.</span>
-                        <div class="count__panel">
-                            <span class="change">-</span>
-                            <span class="count">1</span>
-                            <span class="change">+</span>
-                        </div>
-                        <span class="cost">159999</span>
-                    </div>
-                    <div class="cart__item">
-                        <span class="name">Lorem ipsum dolor sit amet.</span>
-                        <div class="count__panel">
-                            <span class="change">-</span>
-                            <span class="count">1</span>
-                            <span class="change">+</span>
-                        </div>
-                        <span class="cost">159999</span>
-                    </div>
-                    <div class="cart__item">
-                        <span class="name">Lorem ipsum dolor sit amet. Lorem20</span>
                         <div class="count__panel">
                             <span class="change">-</span>
                             <span class="count">1</span>
