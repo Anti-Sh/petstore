@@ -1,6 +1,7 @@
 $(function(){
     var wrapper_childs = [$(".reg"), $(".auth"), $(".profile"), $(".cart")];
     var wrapper = $("#wrapper");
+    $("#tel").mask('+7 (999) 999-99-99');
     wrapper.hide();
     $(".notification").hide();
 
@@ -48,7 +49,7 @@ $(function(){
         $tmp.val("FIFTYCENT").select();
         document.execCommand("copy");
         $tmp.remove();
-        notification(1, "Промокод успешно скопирован в Буфер обмена")
+        notification(1, "Промокод скопирован в Буфер обмена")
     })
 
     function notification(type, description){
