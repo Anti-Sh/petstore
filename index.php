@@ -275,7 +275,7 @@
                 <h2>Регистрация</h2>
                 <input type="email" name="email" placeholder="E-mail">
                 <input type="text" name="telephone" id="tel" placeholder="Номер телефона">
-                <input type="text" name="name" placeholder="Имя">
+                <input type="text" name="username" placeholder="Имя">
                 <input type="password" name="password1" placeholder="Пароль">
                 <input type="password" name="password2" placeholder="Подтверждение пароля">
                 <p>У вас уже есть аккаунт? <br><span class="switch__form">Авторизация</span></p>
@@ -283,8 +283,8 @@
             </div>
             <div class="auth">
                 <h2>Авторизация</h2>
-                <input type="email" name="email" placeholder="E-mail">
-                <input type="password" name="password1" placeholder="Пароль">
+                <input type="email" name="email_login" placeholder="E-mail">
+                <input type="password" name="password_login" placeholder="Пароль">
                 <p>У вас нет аккаунта? <br><span class="switch__form">Регистрация</span></p>
                 <button>Подтвердить</button>
             </div>

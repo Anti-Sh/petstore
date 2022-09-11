@@ -76,4 +76,49 @@ $(function(){
         $(".notification").show(500).delay(3000).hide(500);
     };
 
+    $('.reg button').on("click", function(e){
+        e.preventDefault();
+        let email = $('input[name="email"]').val(),
+            password = $('input[name="password1"]').val(),
+            password_confirm = $('input[name="password2"]').val(),
+            telephone = $('input[name="telephone"]').val(),
+            name = $('input[name="username"]').val(),
+            fields = [
+                $('input[name="email"]'),
+                $('input[name="password1"]'),
+                $('input[name="password2"]'),
+                $('input[name="telephone"]'),
+                $('input[name="username"]')
+            ];
+        $.ajax({
+            url: '../../core/signup.php',
+            type: 'POST',
+            dataType: 'json',
+            data: {
+                email: email,
+                password: password,
+                password_confirm: password_confirm,
+                telephone: telephone,
+                name: name
+            },
+            success (data) {
+                if (data.status) {
+                    document.location.href = '../../index.php';
+                    delay(1000);
+                    notification(1, data.message);
+                } 
+                else {
+                    fields.forEach(function (field) {
+                        field.attr('style', '');
+                    });
+                    if (data.type === 1) {
+                        data.fields.forEach(function (field) {
+                            $(`input[name="${field}"]`).css("border-color", "#c44040");
+                        });
+                    }
+                    notification(2, data.message);
+                }
+            }
+        });
+    });
 })
