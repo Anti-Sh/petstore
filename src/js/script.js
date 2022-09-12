@@ -197,9 +197,9 @@ $(function(){
                 if(data.type) { 
                     let elem = '<div class="cart__item" id="cart'+ data.id.trim() + '">' +
                         '<span class="name">'+ data.name + '</span>' + '<div class="count__panel">' +
-                        '<button value="'+ data.id + '" class="change">-</button>' + '<span class="count">1</span>' +
-                        '<button value="'+ data.id + '" class="change">+</button>' +
-                        '</div>' +  '<span class="cost">'+ (data.count * data.price) + '</span>' +  '</div>';
+                        '<button value="'+ data.id + '" class="change decrement">-</button>' + '<span class="count" id="count'+ data.id +'">1</span>' +
+                        '<button value="'+ data.id + '" class="change increment">+</button>' +
+                        '</div>' + '<span class="cost" id="cost'+ data.id +'">' + (data.count * data.price) + '</span>' +  '</div>';
                     $('.cart__inner').append($(elem));
                     $('.button__add[value="' + data.id + '"]').addClass("added");
                 }
@@ -211,6 +211,44 @@ $(function(){
                 
             }
         });
-    })
+    });
+
+    $('.increment').on('click', function(e){
+        let id = e.currentTarget.value;
+        let doIncrement = true;
+        
+        $.ajax({
+            url: '../../core/count.php',
+            type: 'POST',
+            dataType: 'json',
+            data: {
+                id: id,
+                increment: doIncrement
+            },
+            success (data) {
+                document.getElementById("count" + id).innerText = data.count;
+                document.getElementById("cost" + id).innerText = data.price;
+            }
+        });
+    });
+
+    $('.decrement').on('click', function(e){
+        let id = e.currentTarget.value;
+        let doIncrement = false;
+        
+        $.ajax({
+            url: '../../core/count.php',
+            type: 'POST',
+            dataType: 'json',
+            data: {
+                id: id,
+                increment: doIncrement
+            },
+            success (data) {
+                document.getElementById("count" + id).innerText = data.count;
+                document.getElementById("cost" + id).innerText = data.price;
+            }
+        });
+    });
 
 })

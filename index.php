@@ -284,11 +284,11 @@
                     <div class="cart__item" id="<?echo "cart" . trim($item_id) ?>">
                         <span class="name"> <?= $item["name"] ?> </span>
                         <div class="count__panel">
-                            <button value="<?=trim($item_id)?>" class="change">-</button>
-                            <span class="count">1</span>
-                            <button value="<?=trim($item_id)?>" class="change">+</button>
+                            <button value="<?=trim($item_id)?>" class="change decrement">-</button>
+                            <span class="count" id="count<?=trim($item_id)?>"><?=$item["count"]?></span>
+                            <button value="<?=trim($item_id)?>" class="change increment">+</button>
                         </div>
-                        <span class="cost"><? echo $item["price"] * $item["count"] ?></span>
+                        <span class="cost" id="cost<?=trim($item_id)?>"><? echo $item["price"] * $item["count"] ?></span>
                     </div>
                     <?
                     endforeach;
