@@ -491,6 +491,8 @@ section{
     font-size: 22px;
     border: 1px solid #444444;
     width: 28px;
+    margin-bottom: 0;
+    padding: 0;
 }
 .count__panel .change:hover{
     transition: all 0.3s;
@@ -544,6 +546,25 @@ section{
     font-weight: 500;
 }
 
+.added{
+    color: #2c2c2c;
+    background-color: #fff;
+    border: 2px solid #2c2c2c;
+}
+.added:hover{
+    color: #444444;
+    background-color: #fff;
+    border-color: #444444;
+}
+button:disabled{
+    opacity: 0.3;
+}
+button:disabled:hover{
+    cursor:not-allowed;
+}
+.bucket__clear{
+    margin: 0 auto;
+}
 .hide{
     display: none;
 }

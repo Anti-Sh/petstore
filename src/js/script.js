@@ -158,7 +158,7 @@ $(function(){
     $('#category').on("change", function(e){
         var section_id = $(e.target).val(),
             items = $(".catalog__item");
-        console.log(section_id);    
+
         function showAllItems(){
             for(let i = 0; i < items.length; i++){
                 $(items[i]).show();
@@ -169,6 +169,7 @@ $(function(){
                 $(items[i]).hide();
             }
         }    
+        
         hideAllItems();
         if (section_id == 0){
             showAllItems();
@@ -177,12 +178,39 @@ $(function(){
             for(let i = 0; i < items.length; i++){
                 if(parseInt($(items[i].children[4]).val().trim()) == parseInt(section_id.trim())){
                     $(items[i]).show();
-                    console.log(1111111);
                 }
             }
         }
         
     });
 
+    $('.button__add').on('click', function(e){
+        let id = e.currentTarget.value;
+        $.ajax({
+            url: '../../core/bucket_add.php',
+            type: 'POST',
+            dataType: 'json',
+            data: {
+                id: id,
+            },
+            success (data) {
+                if(data.type) { 
+                    let elem = '<div class="cart__item" id="cart'+ data.id.trim() + '">' +
+                        '<span class="name">'+ data.name + '</span>' + '<div class="count__panel">' +
+                        '<button value="'+ data.id + '" class="change">-</button>' + '<span class="count">1</span>' +
+                        '<button value="'+ data.id + '" class="change">+</button>' +
+                        '</div>' +  '<span class="cost">'+ (data.count * data.price) + '</span>' +  '</div>';
+                    $('.cart__inner').append($(elem));
+                    $('.button__add[value="' + data.id + '"]').addClass("added");
+                }
+                else{
+                    $("#cart"+data.id).remove();
+                    $('.button__add[value="' + data.id + '"]').removeClass("added");
+                }
+                notification(1, data.message);
+                
+            }
+        });
+    })
 
 })

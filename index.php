@@ -1,5 +1,6 @@
 <?
-    require_once "core/connect.php"
+    require_once "core/connect.php";
+    //unset($_SESSION['cart']);
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -173,12 +174,22 @@
                 while( $item = mysqli_fetch_assoc($items)):
                 ?>
                 <div class="catalog__item">
-                    <img src=" <?= $item['src'] ?> ">
+                    <img src="<?= $item['src'] ?>">
                     <h3 class="product__name"> <?= $item['name'] ?> </h3>
                     <p class="product__desc"> <?= $item['description'] ?> </p>
                     <span class="cost"> <?= $item['cost'] ?> </span>
-                    <input class="section_id hide" type="radio" value=" <?= $item['section_id'] ?> ">
-                    <button value=" <?= $item['id'] ?> " class="button__add">В корзину</button>
+                    <input class="section_id hide" type="radio" value="<?= $item['section_id'] ?>">
+                    <?
+                    if($_SESSION['cart'][$item['id']]){
+                        $button_text = "В корзине";
+                        $class = " added";
+                    }
+                    else{
+                        $button_text = "В корзину";
+                        $class = "";
+                    }
+                    ?>
+                    <button value="<?= $item['id'] ?>" class="button__add<?= $class ?>"> <?= $button_text ?> </button>
                 </div>
                 <? endwhile; ?>
             </div>
@@ -266,21 +277,38 @@
             <div class="cart">
                 <h2>Корзина</h2>
                 <div class="cart__inner">
-                    <div class="cart__item">
-                        <span class="name">Lorem ipsum dolor sit amet.</span>
+                    <?
+                    if ($_SESSION["cart"]):
+                    foreach($_SESSION['cart'] as $item_id => $item):
+                    ?>
+                    <div class="cart__item" id="<?echo "cart" . trim($item_id) ?>">
+                        <span class="name"> <?= $item["name"] ?> </span>
                         <div class="count__panel">
-                            <span class="change">-</span>
+                            <button value="<?=trim($item_id)?>" class="change">-</button>
                             <span class="count">1</span>
-                            <span class="change">+</span>
+                            <button value="<?=trim($item_id)?>" class="change">+</button>
                         </div>
-                        <span class="cost">159999</span>
+                        <span class="cost"><? echo $item["price"] * $item["count"] ?></span>
                     </div>
+                    <?
+                    endforeach;
+                    else:
+                    ?>
+                    <h3 class="bucket__clear">Пусто</h3>
+                    <? 
+                    endif;
+                    ?>
                 </div>
-                <button>Заказать</button>
+                <?
+                if(!$_SESSION["cart"] || !$_SESSION["user"]){
+                    $disabled = "disabled";
+                }
+                ?>
+                <button <?=$disabled?>>Заказать</button>
             </div>
         </div>
     </div>
-
+    
     <div class="busket__button">
         <img src="src/img/cart.png">
     </div>
