@@ -115,17 +115,32 @@
         <h1 class="section__header" id="pop">Популярные зоотовары</h1>
         <div class="top__products">
             <?
-            $sql = "SELECT `id`,`name`,`description`,`src`,`cost` FROM `catalog` `c` INNER JOIN `orders_products` `o` ON `c`.`id`=`o`.`product_id`";
+            $sql = "SELECT `id`,`name`,`description`,`src`,`cost` FROM `catalog` `c` ORDER BY (SELECT COUNT(*) FROM `orders_products` `o` WHERE `o`.`product_id`=`c`.`id`) DESC LIMIT 4;";
+            $items_query = mysqli_query($connect, $sql);
+            while( $item = mysqli_fetch_assoc($items_query)):
             ?>
             <div class="top__products__inner">
-                <img src="src/img/products/kogtetochka.jpg" alt="">
+                <img src="<?= $item['src'] ?>" alt="">
                 <div class="right">
-                    <h3>Когтеточка</h3>
-                    <p>Товар, который поможет упростить и разнообразить уход за питомцем, а также превратить вашего непоседу в стильного и послушного друга.</p>
-                    <span class="cost">1199</span>
-                    <button class="button__add">В корзину</button>
+                    <h3><?= $item['name'] ?></h3>
+                    <p><?= $item['description'] ?></p>
+                    <span class="cost"><?= $item['cost'] ?></span>
+                    <?
+                    if($_SESSION['cart'][$item['id']]){
+                        $button_text = "В корзине";
+                        $class = " added";
+                    }
+                    else{
+                        $button_text = "В корзину";
+                        $class = "";
+                    }
+                    ?>
+                    <button value="<?= $item['id'] ?>" class="button__add<?= $class ?>"> <?= $button_text ?> </button>
                 </div>
             </div>
+            <?
+            endwhile;
+            ?>
         </div>
 
         
@@ -147,7 +162,7 @@
                         <ul>
                             <li>Промокоды действуют на весь ассортимент</li>
                             <li>Вы можете подарить промокод кому-нибудь</li>
-                            <li>Номинал промокода можно узнать при оформлении заказа</li>
+                            <li>Узнать номинал промокода и активировать его можно у оператора, который с вами связался</li>
                         </ul>
                     </span>
                     
@@ -304,7 +319,9 @@
                     $disabled = "disabled";
                 }
                 ?>
-                <button <?=$disabled?>>Заказать</button>
+                <form action="core/make_order.php" method="post">
+                    <button name="makeorder" type="submit" <?=$disabled?>>Заказать</button>
+                </form>
             </div>
         </div>
     </div>

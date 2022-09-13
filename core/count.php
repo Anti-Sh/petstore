@@ -5,7 +5,7 @@ $id = $_POST['id']; // Взятие значения из POST
 $incr = $_POST['increment']; // Взятие значения из POST
 
 
-if($incr == true){
+if(trim($incr) === "true"){
     if($_SESSION['cart'][$id]["count"] < 8){
         $_SESSION['cart'][$id]["count"]++;
     }

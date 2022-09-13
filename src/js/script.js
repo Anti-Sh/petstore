@@ -1,4 +1,5 @@
 $(function(){
+    var marker = 0;
     var wrapper_childs = [$(".reg"), $(".auth"), $(".profile"), $(".cart")];
     var wrapper = $("#wrapper");
     $("#tel").mask('+7 (999) 999-99-99');
@@ -32,8 +33,14 @@ $(function(){
 
     $(".busket__button").on("click", function(){
         // Открытие корзины
-        $(".cart").show();
-        wrapper.show(500);
+        if(marker == 0){
+            $(".cart").show();
+            wrapper.show(500);
+        }
+        else{
+            document.location.href = '../../index.php';
+        }
+        
     });
 
     $(".switch__form").on("click", function(){
@@ -186,6 +193,7 @@ $(function(){
 
     $('.button__add').on('click', function(e){
         let id = e.currentTarget.value;
+        marker = 1;
         $.ajax({
             url: '../../core/bucket_add.php',
             type: 'POST',
@@ -215,7 +223,7 @@ $(function(){
 
     $('.increment').on('click', function(e){
         let id = e.currentTarget.value;
-        let doIncrement = true;
+        let doIncrement = "true";
         
         $.ajax({
             url: '../../core/count.php',
@@ -234,7 +242,7 @@ $(function(){
 
     $('.decrement').on('click', function(e){
         let id = e.currentTarget.value;
-        let doIncrement = false;
+        let doIncrement = "false";
         
         $.ajax({
             url: '../../core/count.php',
@@ -250,5 +258,6 @@ $(function(){
             }
         });
     });
-
+    
+    
 })
