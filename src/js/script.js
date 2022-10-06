@@ -213,10 +213,12 @@ $(function(){
                         '</div>' + '<span class="cost" id="cost'+ data.id +'">' + (data.count * data.price) + '</span>' +  '</div>';
                     $('.cart__inner').append($(elem));
                     $('.button__add[value="' + data.id + '"]').addClass("added");
+                    e.currentTarget.innerText = "В корзине";
                 }
                 else{
                     $("#cart"+data.id).remove();
                     $('.button__add[value="' + data.id + '"]').removeClass("added");
+                    e.currentTarget.innerText = "В корзину";
                 }
                 notification(1, data.message);
                 
