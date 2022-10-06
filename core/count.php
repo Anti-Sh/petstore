@@ -19,7 +19,7 @@ if(trim($incr) === "true"){
     die();
 }
 else{
-    if($_SESSION['cart'][$id]["count"] > 2){
+    if($_SESSION['cart'][$id]["count"] >= 2){
         $_SESSION['cart'][$id]["count"]--;
     }
     $response = [ // Создание JSON

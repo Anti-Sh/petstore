@@ -33,13 +33,16 @@ $(function(){
 
     $(".busket__button").on("click", function(){
         // Открытие корзины
-        if(marker == 0){
-            $(".cart").show();
-            wrapper.show(500);
-        }
-        else{
-            document.location.href = '../../index.php';
-        }
+        $(".cart").show();
+        wrapper.show(500);
+        
+        // if(marker == 0){
+        //     $(".cart").show();
+        //     wrapper.show(500);
+        // }
+        // else{
+        //     document.location.href = '../../index.php';
+        // }
         
     });
 
@@ -221,7 +224,8 @@ $(function(){
         });
     });
 
-    $('.increment').on('click', function(e){
+    // $('.increment').on('click', function(e){
+    $('.cart__inner').on('click', '.increment', function(e){
         let id = e.currentTarget.value;
         let doIncrement = "true";
         
@@ -240,7 +244,8 @@ $(function(){
         });
     });
 
-    $('.decrement').on('click', function(e){
+    // $('.decrement').on('click', function(e){
+        $('.cart__inner').on('click', '.decrement', function(e){
         let id = e.currentTarget.value;
         let doIncrement = "false";
         
