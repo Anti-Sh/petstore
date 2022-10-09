@@ -152,7 +152,8 @@ section{
     width: 43%;
 }
 .collage .left__side img{
-    object-fit: contain;
+    -o-object-fit: contain;
+       object-fit: contain;
     width: 100%;
 }
 .collage .right__side{
@@ -165,7 +166,8 @@ section{
     width: 100%;
 }
 .collage .right__side .upper img{
-    object-fit: cover;
+    -o-object-fit: cover;
+       object-fit: cover;
     width: 100%;
 }
 .collage .right__side .lower .section__header{
@@ -198,7 +200,8 @@ section{
 }
 .top__products__inner img{
     width: 200px;
-    object-fit: contain;
+    -o-object-fit: contain;
+       object-fit: contain;
 }
 .top__products__inner .right{
     padding-left: 20px;
@@ -279,7 +282,8 @@ section{
 }
 .catalog__item img{
     height: 280px;
-    object-fit: contain;
+    -o-object-fit: contain;
+       object-fit: contain;
 }
 .catalog__item:hover{
     background-color: #fafafa;
@@ -315,7 +319,8 @@ section{
 }
 .delivery__outer .img__outer img{
     width: 100%;
-    object-fit: cover;
+    -o-object-fit: cover;
+       object-fit: cover;
 }
 .delivery__outer .text2{
     width: 35%;
