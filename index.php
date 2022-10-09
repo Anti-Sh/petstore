@@ -330,6 +330,10 @@
         <img src="src/img/cart.png">
     </div>
 
+    <div class="to__up">
+        <img src="src/img/arrow_up.png">
+    </div>
+
     <div class="notification">
         <h3 id="not__header"></h3>
         <p id="not__desc"></p>

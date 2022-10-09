@@ -441,7 +441,7 @@ section{
     cursor: pointer;
 }
 
-/*cart*/
+/*buttons big*/
 .busket__button{
     position: fixed;
     width: 90px;
@@ -462,6 +462,29 @@ section{
     height: 100%;
     padding: 10px;
 }
+/*buttons big*/
+.to__up{
+    position: fixed;
+    width: 90px;
+    height: 90px;
+    bottom: 140px;
+    right: 25px;
+    background-color: #444444;
+    z-index: 1000;
+    border-radius: 100%;
+    box-shadow: 0 0 8px #444444;
+}
+.to__up:hover{
+    background-color: #2c2c2c;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.to__up img{
+    height: 100%;
+    padding: 10px;
+}
+
+/*cart*/
 .cart__inner{
     width: 90%;
     margin: 10px auto 30px;

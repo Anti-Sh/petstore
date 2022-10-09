@@ -266,5 +266,17 @@ $(function(){
         });
     });
     
-    
+    $(".to__up").hide();
+    $(window).on("scroll", function() {
+        if($(this).scrollTop() != 0) { 
+            $('.to__up').fadeIn();
+        } else {
+            $('.to__up').fadeOut();
+        }
+    });
+    $('.to__up').on("click", function() {
+        $('body,html').animate({scrollTop:0},800);
+    });
+         
+        
 })
